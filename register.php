@@ -27,13 +27,13 @@ $response = $client->send_request($request);
 
 //echo "client received response: ".PHP_EOL;
 //print_r($response);
-if($response ==TRUE)
+if($response == 'SUCC')
 {
   echo "<h2>User has Successfully Registered!</h2>";
 }
-else
+elseif($response == 'FAIL')
 {
-  echo "<h2>User was not Registered:(</h2>";
+  echo "<h2>Username is Taken, sucks to suck :(</h2>";
 }
 
 echo "\n\n";
