@@ -1,37 +1,42 @@
 <!DOCTYPE html>
 
-<style>
-fieldset {width:80;margin-top:left;}
-label {background: lightblue;width:6em;float:left;}
-</style>
+<head>
+<title>Financial Mess</title>
+<link rel="stylesheet" href="index.css">
+</head>
+
+<body>
 
 <form action="login.php">
 
-<left-side> Something Pathetically Awful</left-side>
+<h1> Something Pathetically Awful</h1>
 
-<fieldset>
+	<div class= "fieldtitles">
+		<div class= "title"> User Name </div>
+			<input type="text" name="username" size="15"
+			autocomplete="off" 
+			required
+			autofocus="on"
+			placeholder="Enter your User Name"
+			> 
 	
-	<label> User Name </label>
-	<input type="text" name="username" size="25"
-	autocomplete="off" 
-	required
-	autofocus="on"
-	placeholder="Enter your User Name"
-	> 
 	<br><br><br>
-	<label> Password </label>
-	<input type="text" name="password" size="25"
-	autocomplete="off" 
-	required
-	autofocus="on"
-	placeholder="Enter your Password"
-	> 
-	<br>
-	<input type="submit" value="Submit" name="submit"> 
-	<input type="submit" value="Register" name="register" onclick=location.href="register.html">
+	
+	<div class= "fieldtitles">
+		<div class= "title"> Password </div>
+			<input type="text" name="password" size="15"
+			autocomplete="off" 
+			required
+			autofocus="on"
+			placeholder="Enter your Password"
+			>  
+	
+	<br><br>
+	
+	<div class= "buttons">
+		<input type="submit" value="Login" name="submit"> 
+		<input type="submit" value="Register" name="register" onclick=location.href="register.html">
 
 
-</fieldset>
-
-
+</body>
 </html>
