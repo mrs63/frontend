@@ -1,37 +1,58 @@
 <!DOCTYPE html>
 
-<style>
-fieldset {width:80;margin-top:left;}
-label {background: lightblue;width:6em;float:left;}
-</style>
+<head>
+<title>Financial Mess</title>
+<link rel="stylesheet" href="index.css">
+<script src="text/javascript" href="index.js"></script>
+<script src="text/javascript" href="window.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+</head>
+
+<body>
 
 <form action="login.php">
 
-<left-side> Something Pathetically Awful</left-side>
+<h1> Something Pathetically Awful</h1>
 
-<fieldset>
+	<div class= "fieldtitles">
+		<div class= "title"> User Name </div>
+			<input type="text" name="username" size="15"
+			autocomplete="off" 
+			required
+			autofocus="on"
+			placeholder="Enter your User Name"
+			> 
 	
-	<label> User Name </label>
-	<input type="text" name="username" size="25"
-	autocomplete="off" 
-	required
-	autofocus="on"
-	placeholder="Enter your User Name"
-	> 
-	<br><br><br>
-	<label> Password </label>
-	<input type="text" name="password" size="25"
-	autocomplete="off" 
-	required
-	autofocus="on"
-	placeholder="Enter your Password"
-	> 
+	<br><br>
+	
+	<div class= "fieldtitles">
+		<div class= "title"> Password </div>
+			<input type="text" name="password" size="15"
+			autocomplete="off" 
+			required
+			autofocus="on"
+			placeholder="Enter your Password"
+			>  
+	
+	<br><br>
+	
+	<div class= "buttons">	
+		<input type="submit" class="buttons" value="Login" name="submit"> 
+
+		
+
+	<div class= "buttons">
+		<input type="submit" class="buttons" value="Register" name="register" onclick=location.href="register.html">
+
 	<br>
-	<input type="submit" value="Submit" name="submit"> 
-	<input type="submit" value="Register" name="register" onclick=location.href="register.html">
+
+	<input type="submit" value="View Profile Page" name="profile" onclick=location.href="profile.html">
 
 
-</fieldset>
+ <div id="StockTickerContainer" style="height: 32px; line-height: 32px; overflow: hidden;">
+        <div id='dvStockTicker' class='stockTicker'>
+        </div>
+    </div>
 
-
+</body>
 </html>

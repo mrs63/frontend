@@ -28,13 +28,13 @@ $response = $client->send_request($request);
 //echo "client received response: ".PHP_EOL;
 //print_r($response);
 
-if($response == TRUE)
+if($response == 'SUCC')
 {
   echo "<h2>User has Successfully Logged In!</h2>";
 }
-elseif($response == FALSE)
+elseif($response == 'FAIL')
 {
-  echo "<h2>User Not Registered:(</h2>";
+  echo "<h2>User or Password Incorrect :(</h2>";
 }
 else
 {
