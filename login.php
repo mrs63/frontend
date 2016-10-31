@@ -3,6 +3,7 @@
 require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
+include ('pages.php');
 
 $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
 if (isset($argv[1]))
@@ -16,6 +17,7 @@ else
 
 $user = $_GET["username"];
 $pass = $_GET["password"];
+$base = $_GET["base"];
 
 $request = array();
 $request['type'] = "login";
@@ -23,24 +25,18 @@ $request['username'] = $user;
 $request['password'] = $pass;
 $request['message'] = $msg;
 $response = $client->send_request($request);
-//$response = $client->publish($request);
 
-//echo "client received response: ".PHP_EOL;
-//print_r($response);
-
-if($response == TRUE)
+if($response == 'SUCC')
 {
-  echo "<h2>User has Successfully Logged In!</h2>";
+	$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
+	homepage($user, $base, $client);
 }
-elseif($response == FALSE)
+
+elseif($response == 'FAIL')
 {
-  echo "<h2>User Not Registered:(</h2>";
+	echo "<h2>User or Password Incorrect :(</h2>";
 }
 else
 {
-  echo $response;
+	echo $response;
 }
-echo "\n\n";
-
-echo $argv[0].PHP_EOL;
-
