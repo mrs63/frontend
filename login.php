@@ -41,7 +41,8 @@ if($response == 'SUCC')
 	}
 	if(($_GET["page"] == "trade"))
 	{
-		echo "trade";
+		header("location: trade.html");
+		exit();
 	}
 
 
