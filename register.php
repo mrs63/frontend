@@ -29,7 +29,8 @@ $response = $client->send_request($request);
 //print_r($response);
 if($response != 'FAIL')
 {
-  echo "<h2>User has Successfully Registered!</h2>";
+ 	header("location: index.html");
+ 	exit();
 }
 else
 {

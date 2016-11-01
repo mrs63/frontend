@@ -4,13 +4,13 @@
 <title>Financial Mess</title>
 <link rel="stylesheet" href="index.css">
 <script src="text/javascript" href="index.js"></script>
-<script src="text/javascript" href="window.js"></script>
+
 
 </head>
 
 <body>
 
-<form action="login.php">
+<form action="login.php" method="get">
 
 <h1> Something Pathetically Awful</h1>
 
@@ -46,23 +46,20 @@
 			>  
 	<br><br>
 
-	<div class= "buttons">	
-		<input type="submit" class="buttons" value="Login" name="submit"> 
 
-		
+	  	<input type="radio" name="page" value="home" checked> Home Page<br>
+	  	<input type="radio" name="page" value="profile"> Profile<br>
+	 	<input type="radio" name="page" value="trade"> Trade<br>  
+
+
+	<div class= "buttons">	
+		<input type="submit" class="buttons" value="Submit" name="submit"> 
 
 	<div class= "buttons">
 		<input type="submit" class="buttons" value="Register" name="register" onclick=location.href="register.html">
 
 	<br><br><br>
-
-	<div class= "buttons">
-		<input type="submit" value="View Profile Page" name="profile" onclick=location.href="profile.html">
-	</div>
-
-	<div class= "buttons">
-		<input type="submit" value="View Exchange Rates Page" name="exchange" onclick=location.href="exchange.html">
-	</div>
+</form>
 
 </body>
 </html>
