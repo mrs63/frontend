@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<head>
+<title>Financial Mess</title>
+<link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+<form action="login.php" method="get">
+<br>
+<h3>Log in to your Account</h3>
+
+	<div class= "fieldtitles">
+		<div class= "title"></div>
+			<input type="text" name="username" size="15"
+			autocomplete="off" 
+			required
+			autofocus="on"
+			placeholder="User Name"
+			> 
+	
+	<br>
+	
+	<div class= "fieldtitles">
+		<div class= "title"></div>
+			<input type="text" name="password" size="15"
+			autocomplete="off" 
+			required
+			autofocus="on"
+			placeholder="Password"
+			>  
+	
+	<br>
+
+	<div class= "fieldtitles">
+		<div class= "title"></div>
+			<input type="text" name="base" size="15"
+			autocomplete="off" 
+			required
+			autofocus="on"
+			placeholder="Choose a Currency"
+			>  
+	<br><br>
+
+	<div class="checkbox">
+	<input type="checkbox" name="remember" value="Remember my Username"><em>Remember my Username</em><br> 
+	</div>
+
+	<input type="radio" name="page" value="home" checked> Home Page<br>
+	<input type="radio" name="page" value="profile"> Profile<br>
+	<input type="radio" name="page" value="trade"> Trade<br>  
+
+
+
+	<div class= "buttons">	
+		<input type="submit" class="buttons" value="Submit" name="submit"> 
+
+	<div class= "buttons">
+		<input type="submit" class="buttons" value="Register" name="register" onclick=location.href="register.html">
+
+
+</form>
+
+</body>
+</html>
