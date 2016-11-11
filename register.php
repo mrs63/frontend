@@ -5,14 +5,6 @@ require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
 
 $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
-if (isset($argv[1]))
-{
-  $msg = $argv[1];
-}
-else
-{
-  $msg = "register";
-}
 
 $user = $_GET["username"];
 $pass = $_GET["password"];
@@ -29,7 +21,7 @@ $response = $client->send_request($request);
 //print_r($response);
 if($response != 'FAIL')
 {
- 	header("location: index.html");
+ 	header("location: login.html");
  	exit();
 }
 else

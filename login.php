@@ -6,14 +6,6 @@ require_once('rabbitMQLib.inc');
 include('home.php');
 
 $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
-if (isset($argv[1]))
-{
-  $msg = $argv[1];
-}
-else
-{
-  $msg = "test message";
-}
 
 $user = $_GET["username"];
 $pass = $_GET["password"];
@@ -30,9 +22,12 @@ if($response == 'SUCC')
 
 	if(($_GET["page"] == "home"))
 	{
-		$base = $_GET["base"];
+		session_start();
+		$_SESSION["USER"] = $user;
+		header("location: index.php");
+		/*$base = $_GET["base"];
 		$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
-		homepage($user, $base, $client);
+		homepage($user, $base, $client);*/
 	}
 	if(($_GET["page"] == "profile"))
 	{
