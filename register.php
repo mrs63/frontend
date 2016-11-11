@@ -13,12 +13,8 @@ $request = array();
 $request['type'] = "register";
 $request['username'] = $user;
 $request['password'] = $pass;
-$request['message'] = $msg;
 $response = $client->send_request($request);
-//$response = $client->publish($request);
 
-//echo "client received response: ".PHP_EOL;
-//print_r($response);
 if($response != 'FAIL')
 {
  	header("location: login.html");

@@ -23,8 +23,9 @@ $table = $client->send_request($homeReq);
 $page.= "<hr>";
 $page.= "<h3> Base: $base </h3><br>";
 $page.= $table;
-$page.= "<br> <br>";
-$page.= " <button onclick=\"location.href='login.html'\">Go to Main</button> ";
+$page.= " <br><button onclick=\"location.href='login.html'\">LOGIN</button> ";
+$page.= " <br><button onclick=\"location.href='profile.php'\">PROFILE</button> ";
+$page.= " <br><button onclick=\"location.href='trade.html'\">TRADE</button> ";
 
 echo $page;
 

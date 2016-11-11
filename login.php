@@ -14,33 +14,13 @@ $request = array();
 $request['type'] = "login";
 $request['username'] = $user;
 $request['password'] = $pass;
-$request['message'] = $msg;
 $response = $client->send_request($request);
 
 if($response == 'SUCC')
 {
-
-	if(($_GET["page"] == "home"))
-	{
-		session_start();
-		$_SESSION["USER"] = $user;
-		header("location: index.php");
-		/*$base = $_GET["base"];
-		$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
-		homepage($user, $base, $client);*/
-	}
-	if(($_GET["page"] == "profile"))
-	{
-		$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
-		profile($user, $client);
-	}
-	if(($_GET["page"] == "trade"))
-	{
-		header("location: trade.html");
-		exit();
-	}
-
-
+	session_start();
+	$_SESSION["USER"] = $user;
+	header("location: index.php");
 }
 
 elseif($response == 'FAIL')
