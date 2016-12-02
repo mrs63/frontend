@@ -1,4 +1,5 @@
 <?php
 session_start();
-$_SESSION['BASE'] = $_POST['baseVal'];
+$base = substr($_POST['baseVal'], 0, 3);
+$_SESSION['BASE'] = $base;
 ?>

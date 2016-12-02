@@ -1,27 +1,46 @@
+
 <!DOCTYPE HTML>
 
 <body>
 <form action="trade.php">
 
-From Currency: <input type="text" name="curr1" size="3"
-			autocomplete="off" 
-			required
-			autofocus="on"
-			maxlength="3"
-			
-			><br>
-Amount: <input type="text" name="amount" size="15"
-			autocomplete="off" 
-			required
-			autofocus="on"
-			><br>
+<select required name='from'>
+<?php
+require_once('path.inc');
+require_once('get_host_info.inc');
+require_once('rabbitMQLib.inc');
+
+$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
+$listReq = array();
+$listReq['type'] = "get_curr_list";
+$list = $client->send_request($listReq);
+
+
+$from = "<option selected disabled>From Currency</option>";
+$ind = 0;
+foreach($list as $arr)
+{
+	$from.= "<option>$arr</option>";
+	$ind++;
+}
+?>
+</select>
 
 To Currency: <input type="text" name="curr2" size="3"
 			autocomplete="off" 
 			required
 			autofocus="on"
 			maxlength="3"
+			>
+			
+	
+Amount: <input type="text" name="amount" size="15"
+			autocomplete="off" 
+			required
+			autofocus="on"
 			><br>
+
+
 <input type="submit" value="Trade">
 
 </form>
