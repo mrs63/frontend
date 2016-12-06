@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML>
 
 <body>
@@ -20,29 +19,34 @@ $from = "<option selected disabled>From Currency</option>";
 $ind = 0;
 foreach($list as $arr)
 {
-	$from.= "<option>$arr</option>";
-	$ind++;
+  $from.= "<option>$arr</option>";
+  $ind++;
 }
 ?>
 </select>
 
-To Currency: <input type="text" name="curr2" size="3"
-			autocomplete="off" 
-			required
-			autofocus="on"
-			maxlength="3"
-			>
-			
-	
-Amount: <input type="text" name="amount" size="15"
-			autocomplete="off" 
-			required
-			autofocus="on"
-			><br>
+To Currency: <input type='text' name='curr2' size='3'
+      autocomplete='off' 
+      required
+      autofocus='on'
+      maxlength='3'
+      >
+      
+  
+Amount: <input type='text' name='amount' size='15'
+      autocomplete='off' 
+      required
+      autofocus='on'
+      ><br>
 
 
-<input type="submit" value="Trade">
+<input type='submit' value='trade'>
 
 </form>
 </body>
+
+
+
+
+
 </html>

@@ -14,7 +14,7 @@ html{
 	height:100%;
 }
 
-form{
+/*form{
 	background-color: #ffffff;
 	-webkit-border-radius: 4em;
 	-moz-border-radius:4em;
@@ -33,7 +33,7 @@ form{
 	font-size: 15px;
 	letter-spacing: 1px;
 
-}
+}*/
 
 
 body {
@@ -72,18 +72,17 @@ body {
  
 
 input[type=submit] {
-background:    #336fa5;
-background:    -webkit-linear-gradient(#336fa5, #20486c);
-background:    linear-gradient(#336fa5, #20486c);
-border:        1px solid #040509;
+background:    #0D32A9;
+border:        1px solid #0D32A9;
 border-radius: 5px;
-box-shadow:    -1px 1px 0 0 #444;
 color:         #fff;
 display:       inline-block;
 padding:       6px 14px;
-font:          normal 700 12px/1 "Overlock", cursive;
+font:          normal 700 12px/1 "NexaLight", cursive;
 text-align:    center;
-text-shadow:   0px 0px 0 #fff;
+height: 50px;
+width: 200px;
+font-size: 18px;
 }
 input[type=submit]:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #344214), color-stop(1, #a4c752) );
@@ -94,6 +93,15 @@ input[type=submit]:hover {
 input[type=submit]:active {
 	position:relative;
 	top:1px;
+}
+
+
+input[type=password] {
+	display: block; 
+	margin: 0 auto;
+    height:50px;
+    width:200px;
+    font-size: 18px;
 }
 
 @-webkit-keyframes hvr-ripple-out {
@@ -115,7 +123,9 @@ input[type=submit]:active {
     opacity: 0;
   }
 }
-
+.fieldtitles{
+	float:center auto;
+}
 .hvr-ripple-out {
   display: inline-block;
   vertical-align: middle;

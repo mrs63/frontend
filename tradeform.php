@@ -1,6 +1,5 @@
 <?php
 
-
 echo '<title>Spafin</title>';
 
 // FONTS
@@ -64,40 +63,60 @@ echo "      <div class=\"container text-center\" style=\"padding: 100px\">";
 
 // TABLE CODE HERE
 
-
-
 require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
 
+
+echo  "<form action='trade.php'>";
+
+echo "<select name='from'>";
 $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
-$profReq = array();
-session_start();
+$listReq = array();
+$listReq['type'] = "get_curr_list";
+$list = $client->send_request($listReq);
 
-$page = "<h1> PROFILE </h1> <br>";
-
-if(isset($_SESSION["USER"]))
+$from = "<option selected disabled>From Currency</option>";
+$ind = 0;
+foreach($list as $arr)
 {
-	$user = $_SESSION["USER"];
-	$page.= "<h3> Welcome " . $user . "</h3>";
+  $from.= "<option>$arr</option>";
+  $ind++;
 }
-else
+echo $from . "</select>";
+
+
+echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+
+
+echo "<select name='to'>";
+$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
+$listReq = array();
+$listReq['type'] = "get_curr_list";
+$list = $client->send_request($listReq);
+
+$from = "<option selected disabled>To Currency</option>";
+$ind = 0;
+foreach($list as $arr)
 {
-	header("location: login.html");
-	exit();
+  $from.= "<option>$arr</option>";
+  $ind++;
 }
+echo $from . "</select>";
 
-$profReq['type'] = "get_user_pos";
-$profReq['username'] = $user;
-$table = $client->send_request($profReq);
+echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 
-$page = "<h1> Profile </h1> <br>";
-$page.= "<hr>";
-$page.= "<h3> $user" . "'s Positions </h3> <br><br>";
-$page.= $table;
+echo "<input type='text' name='amount' size='15'
+      autocomplete='off' 
+      placeholder='Amount'
+      required
+      autofocus='on'
+      >";
 
-echo $page;
+echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 
+echo "<input type='submit' value='Trade'>
+</form>";
 
 //////////////////////////////////////////////////////////
 
@@ -107,7 +126,7 @@ echo "    <div class=\"info-container\">";
 echo "        <div class=\"container text-center\">";
 echo "          <div class=\"row\">";
 echo "            <div class=\"col-md-4\">";
-echo " <a href=\"http://somethingpatheticallyawful.com/index.php\" style=\"color:#ffffff\"><h3>Dashboard</h3></a>";
+echo " <a href=\"http://somethingpatheticallyawful.com/login.html\" style=\"color:#ffffff\"><h3>Login</h3></a>";
 echo "              <br/><br/>";
 echo "            </div>";
 echo "            <div class=\"col-md-4\">";
@@ -151,9 +170,6 @@ echo "          </div>";
 echo "        </div>";
 echo "    </div>";
 echo "  </div>";
-
-
-
 
 
 
