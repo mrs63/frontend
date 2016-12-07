@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 
 echo '<title>Spafin</title>';
 
@@ -30,20 +30,13 @@ echo "          <span class=\"underline-bar\"></span>";
 echo "        </button>";
 echo "        <a class=\"navbar-brand spafin theFade \" href=\"http://somethingpatheticallyawful.com/\">Spafin</a>";
 echo "      </div>";
-
-if (isset($_SESSION["USER"]))
-	{
-	$user = $_SESSION["USER"];
-	$page.= "<h3> Welcome " . $user . "</h3>";
-	}
-
 echo "      <div class=\"collapse navbar-collapse navbar-right allowUnderline\" id=\"myNavbar\">";
 echo "        <ul class=\"nav navbar-nav\">";
 echo "          <li class=\"active\"><a target=\"_blank\" class=\"theFade\" href=\"aboutus.html\">About Us</a></li>";
 echo "          <li><a target=\"_blank\" class=\"theFade\" href=\"http://www.dowjones.com/\">Dow Jones</a></li>";
 echo "          <li><a target=\"_blank\" class=\"theFade\" href=\"http://www.nasdaq.com/\">NASDAQ</a></li>";
 echo "          <li><a target=\"_blank\" class=\"theFade\" href=\"http://money.cnn.com/data/markets/sandp/\">S&P 500</a></li>";
-echo "          <li><a target=\"_blank\" class=\"theFade\" href=\"\">Log Out</a></li>";
+echo "          <li><a class=\"theFade\" href=\"login.html\">Log Out</a></li>";
 echo "        </ul>";
 echo "      </div>";
 echo "    </div>";
@@ -55,7 +48,12 @@ echo "  <div class=\"skewContainer\">";
 echo "    <div class=\"body-container\">";
 echo "";
 echo "      <div class=\"container text-center\">";
-echo "        <h1>Spafin</h1>";
+echo "        <h1>Spafin</h1><br><br>";
+if (isset($_SESSION["USER"]))
+	{
+	$user = $_SESSION["USER"];
+	echo "<h3> Welcome " . $user . "</h3>";
+	}
 echo "      </div>";
 echo "    </div>";
 echo "";
@@ -72,7 +70,7 @@ require_once('rabbitMQLib.inc');
 
 $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
 $profReq = array();
-session_start();
+
 
 $page = "<h1> PROFILE </h1> <br>";
 

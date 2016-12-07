@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 echo '<title>Spafin</title>';
 
 // FONTS
@@ -29,20 +29,13 @@ echo "          <span class=\"underline-bar\"></span>";
 echo "        </button>";
 echo "        <a class=\"navbar-brand spafin theFade \" href=\"http://somethingpatheticallyawful.com/\">Spafin</a>";
 echo "      </div>";
-
-if (isset($_SESSION["USER"]))
-	{
-	$user = $_SESSION["USER"];
-	$page.= "<h3> Welcome " . $user . "</h3>";
-	}
-
 echo "      <div class=\"collapse navbar-collapse navbar-right allowUnderline\" id=\"myNavbar\">";
 echo "        <ul class=\"nav navbar-nav\">";
 echo "          <li class=\"active\"><a target=\"_blank\" class=\"theFade\" href=\"aboutus.html\">About Us</a></li>";
 echo "          <li><a target=\"_blank\" class=\"theFade\" href=\"http://www.dowjones.com/\">Dow Jones</a></li>";
 echo "          <li><a target=\"_blank\" class=\"theFade\" href=\"http://www.nasdaq.com/\">NASDAQ</a></li>";
 echo "          <li><a target=\"_blank\" class=\"theFade\" href=\"http://money.cnn.com/data/markets/sandp/\">S&P 500</a></li>";
-echo "          <li><a target=\"_blank\" class=\"theFade\" href=\"\">Log Out</a></li>";
+echo "          <li><a class=\"theFade\" href=\"login.html\">Log Out</a></li>";
 echo "        </ul>";
 echo "      </div>";
 echo "    </div>";
@@ -54,12 +47,17 @@ echo "  <div class=\"skewContainer\">";
 echo "    <div class=\"body-container\">";
 echo "";
 echo "      <div class=\"container text-center\">";
-echo "        <h1>Spafin</h1>";
+echo "        <h1>Spafin</h1><br><br>";
+if (isset($_SESSION["USER"]))
+	{
+	$user = $_SESSION["USER"];
+	echo "<h3> Welcome " . $user . "</h3>";
+	}
 echo "      </div>";
 echo "    </div>";
 echo "";
 echo "    <div class=\"body-background\">";
-echo "      <div class=\"container text-center\" style=\"padding: 100px\">";
+echo "      <div class=\"container text-center\" style=\"padding: 45px\">";
 
 // TABLE CODE HERE
 
@@ -94,11 +92,12 @@ function postValue() {
 </script>
 </head>";
 
-session_start();
+
 
 if(!isset($_SESSION["BASE"]))
 {
 	$_SESSION["BASE"] = "USD";
+	echo "<br>";
 }
 
 
@@ -106,7 +105,6 @@ $base = $_SESSION["BASE"];
 $homeReq['type'] = "get_ex_for_base";
 $homeReq['base'] = $base;
 $table = $client->send_request($homeReq);
-$page.= "<hr>";
 
 
 $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
@@ -122,11 +120,14 @@ foreach($list as $arr)
 	$page.= "<option>$arr</option>";
 	$ind++;
 }
-$page.= "</select>
-<br><br>
-<input type='button' onclick='postValue()' style='float:right' value='APPLY'>";
 
-$page.= "<br><h4>Base: " . $base . "</h4><br>";
+echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+$page.= "</select>
+<br><br>";
+echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+echo "<input type='button' onclick='postValue()' style='float:right' value='APPLY'>";
+
+$page.= "<h4>Base: " . $base . "</h4><br><br><br>";
 $page.= $table;
 
 

@@ -1,40 +1,7 @@
-@font-face{
-	font-family: companyname;
-	src: url(/home/manvi/Downloads/Kelvinch Version 3_2);
-}
-
-h1 {
-	color: #fff;
-	text-shadow: #fff 0 0 10px;
-	font: 60px 'LeagueGothicRegular';
-}
-
 html{
-	background: linear-gradient(#2F53A6, #416FDA); /*need to fix*/
+	background: linear-gradient(#2F53A6, #416FDA);
 	height:100%;
 }
-
-/*form{
-	background-color: #ffffff;
-	-webkit-border-radius: 4em;
-	-moz-border-radius:4em;
-	border-radius:4em;
-	-moz-box-shadow:0 -1px 0 0px #000;
-	-webkit-box-shadow: 0 -1px 0 0px #000;
-	box-shadow:0 -1px 0 0px #000;
-
-	border: none;
-	width:310px;
-	height:310px;
-	margin:15px 0;
-	color:#000000;
-	padding: 0px 0 0px;
-	font-family:Arial, Helvetica, sans-serif;
-	font-size: 15px;
-	letter-spacing: 1px;
-
-}*/
-
 
 body {
 
@@ -69,26 +36,29 @@ body {
 	position: absolute;
 }
 
- 
+h3 {
+	font:"NexaLight";
+	color: #ffffff;
+}
 
 input[type=submit] {
-background:    #0D32A9;
+background:    #ffffff;
 border:        1px solid #0D32A9;
-border-radius: 5px;
-color:         #fff;
-display:       inline-block;
-padding:       6px 14px;
-font:          normal 700 12px/1 "NexaLight", cursive;
+border-radius: 3px;
+color:         #0D32A9;
+position: center;
+font:         "NexaLight";
 text-align:    center;
 height: 50px;
-width: 200px;
+width: 693px;
 font-size: 18px;
 }
 input[type=submit]:hover {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #344214), color-stop(1, #a4c752) );
-	background:-moz-linear-gradient( top, #a7ddff 5%, #429bd4 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#a7ddff', endColorstr='#429bd4');
-	background-color:#a7ddff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #0D32A9), color-stop(1, #0D32A9) );
+	background:-moz-linear-gradient( top, #0D32A9 5%, #0D32A9 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0D32A9', endColorstr='#0D32A9');
+	background-color:#0D32A9;
+	color:#ffffff ;
 }
 input[type=submit]:active {
 	position:relative;
@@ -97,10 +67,13 @@ input[type=submit]:active {
 
 
 input[type=password] {
-	display: block; 
+	background:    #ffffff;
+    border:        1px solid #d35400;
+    color:  #d35400 ;
+	float: center; 
 	margin: 0 auto;
     height:50px;
-    width:200px;
+    width:250px;
     font-size: 18px;
 }
 
